@@ -1,0 +1,233 @@
+﻿<Page x:Class="MyShop.Views.Dashboard"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyShop.Views"
+      xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="780" d:DesignWidth="1030"
+      Title="Dashboard">
+
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisConverter"/>
+    </Page.Resources>
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="260"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="130"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Column="0" Margin="20 0 20 20" Style="{StaticResource whiteBorder}" >
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Border Width="50" Height="50" CornerRadius="10" Margin="5 0 20 0">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="#fb7456" Offset="0"/>
+                                <GradientStop Color="#fa5654" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Icon:PackIconMaterial Kind="AccountCircle" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="Hello" FontSize="26" FontWeight="Bold" Style="{StaticResource titleTextInDashBoard}"/>
+                        <TextBlock Text="Have a good day" Foreground="#6c879a" Margin="0 3 0 0"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!--Search text box-->
+                <Grid Width="300" HorizontalAlignment="Right">
+                    <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#868686" Panel.ZIndex="1"
+               Text="Search here ..." IsHitTestVisible="False"
+               Visibility="{Binding ElementName=textBoxSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVisConverter}}"/>
+                    <TextBox x:Name="textBoxSearch" Style="{StaticResource searchTextBox}"/>
+
+                    <Icon:PackIconMaterial Kind="Magnify" Width="18" Height="18" Foreground="#ff6d46" Margin="0 0 15 0"
+                           HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                </Grid>
+            </Grid>
+        </Border>
+        
+        <!--Info Card-->
+        <Grid Grid.Column="0" Grid.Row="1" Margin="10 0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <MaterialDesign:Card Background="{DynamicResource BlueGradient}" UniformCornerRadius="15" Margin="6"
+                                 >
+                <Grid Margin="10">
+                    <StackPanel>
+                        <TextBlock Text="Total Products"
+                       Foreground="White"
+                       Style="{StaticResource titleTextInDashBoard}"/>
+
+                        <!-- binding -->
+
+                        <TextBlock x:Name="SumProducts" 
+                    Text="102 Products"
+                       Foreground="White"
+                       Style="{StaticResource MaterialDesignSubtitle1TextBlock}"/>
+
+                    </StackPanel>
+                    <Icon:PackIconMaterial Kind="Cellphone" Width="50" Margin="0, 0, 10, 10" VerticalAlignment="Bottom"
+            HorizontalAlignment="Right" Foreground="Azure"
+            Height="50"/>
+
+                </Grid>
+            </MaterialDesign:Card>
+
+            <MaterialDesign:Card Background="{DynamicResource YellowGradient}" UniformCornerRadius="15" Margin="6" Grid.Column="1"
+                     >
+                <Grid Margin="10">
+                    <StackPanel>
+                        <TextBlock Text="Week Orders"
+                            Foreground="White"
+                            Style="{StaticResource titleTextInDashBoard}"/>
+
+                        <!-- binding -->
+
+                        <TextBlock x:Name="SumWeekOrders" 
+                                        Text="10 Products"
+                                        Foreground="White"
+                                        Style="{StaticResource MaterialDesignSubtitle1TextBlock}"/>
+
+                    </StackPanel>
+                    <Icon:PackIconMaterial Kind="Receipt" Width="50" Margin="0, 0, 10, 10" VerticalAlignment="Bottom"
+                            HorizontalAlignment="Right" Foreground="Azure"
+                            Height="50"/>
+
+                </Grid>
+            </MaterialDesign:Card>
+
+            <MaterialDesign:Card Background="{DynamicResource PinkGradient}" UniformCornerRadius="15" Margin="6" Grid.Column="2">
+                <Grid Margin="10">
+                    <StackPanel>
+                        <TextBlock Text="Month Orders"
+                Foreground="White"
+                Style="{StaticResource titleTextInDashBoard}"/>
+
+                        <!-- binding -->
+
+                        <TextBlock x:Name="SumMonthOrders" 
+                            Text="10 Products"
+                            Foreground="White"
+                            Style="{StaticResource MaterialDesignSubtitle1TextBlock}"/>
+
+                    </StackPanel>
+                    <Icon:PackIconMaterial Kind="Receipt" Width="50" Margin="0, 0, 10, 10" VerticalAlignment="Bottom"
+                HorizontalAlignment="Right" Foreground="Azure"
+                Height="50"/>
+
+                </Grid>
+            </MaterialDesign:Card>
+
+            <MaterialDesign:Card Background="{DynamicResource GreenGradient}" UniformCornerRadius="15" Margin="6" Grid.Column="3">
+                <Grid Margin="10">
+                    <StackPanel>
+                        <TextBlock Text="Total Revenue"
+                 Foreground="White"
+                 Style="{StaticResource titleTextInDashBoard}"/>
+
+                        <!-- binding -->
+
+                        <TextBlock x:Name="SumRevenue" 
+                             Text="123450021 $"
+                             Foreground="White"
+                             Style="{StaticResource MaterialDesignSubtitle1TextBlock}"/>
+
+                    </StackPanel>
+                    <Icon:PackIconMaterial Kind="Cash" Width="50" Margin="0, 0, 10, 10" VerticalAlignment="Bottom"
+                 HorizontalAlignment="Right" Foreground="Azure"
+                 Height="50"/>
+
+                </Grid>
+            </MaterialDesign:Card>
+
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!--Chart-->
+            <Border Margin="16 10 10 10"  Style="{StaticResource whiteBorder}">
+
+                <Grid>
+                    <TextBlock Text="Revenue Analytics" Style="{StaticResource titleTextInDashBoard}"/>
+                        
+                    <lvc:CartesianChart LegendLocation="None" Margin="5 50 5 5" Loaded="CartesianChart_Loaded">
+                        <lvc:CartesianChart.DataTooltip>
+                            <lvc:DefaultTooltip Background="{DynamicResource GreenGradient}" Foreground="Black"/>
+                        </lvc:CartesianChart.DataTooltip>
+
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis Foreground="Gray" ShowLabels="True" Labels="Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Des">
+                                <lvc:Axis.Separator>
+                                    <lvc:Separator StrokeThickness="0" Step="1"/>
+                                </lvc:Axis.Separator>
+                            </lvc:Axis>
+                        </lvc:CartesianChart.AxisX>
+
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis Foreground="Gray" ShowLabels="True" MinValue="0" MaxValue="500">
+                                <lvc:Axis.Separator>
+                                    <lvc:Separator StrokeThickness="0"/>
+                                </lvc:Axis.Separator>
+                            </lvc:Axis>
+                        </lvc:CartesianChart.AxisY>
+
+                        <lvc:CartesianChart.Series>
+                            <lvc:LineSeries StrokeThickness="2" PointForeground="Red" PointGeometrySize="10"
+                                            Values="40, 80, 120, 100, 120, 30, 10, 200, 290, 260, 270, 130">
+                            </lvc:LineSeries>
+                        </lvc:CartesianChart.Series>
+                    </lvc:CartesianChart>
+                </Grid>
+                
+            </Border>
+            
+            <!--List Popular-->
+
+            <Border Grid.Column="1" Style="{StaticResource whiteBorder}" Margin="10">
+                <Grid>
+                    <TextBlock Text="Popular" Style="{StaticResource titleTextInDashBoard}"/>
+                    <ListView Margin="0 40 0 0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              HorizontalAlignment="Center">
+                        <ListViewItem>
+                            <Border Style="{StaticResource whiteBorder}">
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Center" Width="233">
+                                    <Image Source="/Assets/Images/Design/iphone13.jpg" Width="90" Height="90"/>
+                                    <TextBlock Text="Iphone 13" Style="{DynamicResource MaterialDesignHeadline5TextBlock}"/>
+                                    <TextBlock Text="$1099" Style="{DynamicResource MaterialDesignSubtitle1TextBlock}"/>
+                                </StackPanel>
+                            </Border>
+                                
+                            
+                        </ListViewItem>
+                    </ListView>
+                </Grid>
+                
+            </Border>
+            
+            
+        </Grid>
+        
+    </Grid>
+</Page>

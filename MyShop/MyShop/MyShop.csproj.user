@@ -7,10 +7,28 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\AddOrder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AddProduct.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Configuration.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Dashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Login.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ManageOrders.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ManageProducts.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Statistic.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -24,10 +42,28 @@
     <Page Update="Resources\StyleResource.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\AddOrder.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AddProduct.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Configuration.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Dashboard.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Login.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ManageOrders.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ManageProducts.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Statistic.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

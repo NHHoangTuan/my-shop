@@ -1,6 +1,12 @@
 ﻿
 FD:\IT\Github\MyShop_Window\MyShop\MyShop\App.xaml;;
 FD:\IT\Github\MyShop_Window\MyShop\MyShop\MainWindow.xaml;;
+FD:\IT\Github\MyShop_Window\MyShop\MyShop\Views\AddProduct.xaml;;
+FD:\IT\Github\MyShop_Window\MyShop\MyShop\Views\Configuration.xaml;;
 FD:\IT\Github\MyShop_Window\MyShop\MyShop\Views\Dashboard.xaml;;
 FD:\IT\Github\MyShop_Window\MyShop\MyShop\Views\Login.xaml;;
+FD:\IT\Github\MyShop_Window\MyShop\MyShop\Views\ManageOrders.xaml;;
+FD:\IT\Github\MyShop_Window\MyShop\MyShop\Views\ManageProducts.xaml;;
+FD:\IT\Github\MyShop_Window\MyShop\MyShop\Views\Statistic.xaml;;
+FD:\IT\Github\MyShop_Window\MyShop\MyShop\Views\AddOrder.xaml;;
 

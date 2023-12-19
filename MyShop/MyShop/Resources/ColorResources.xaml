@@ -35,11 +35,4 @@
         <GradientStop Color="#1ace6e" Offset="1.0"/>
     </LinearGradientBrush>
 
-    <LinearGradientBrush x:Key="White">
-        <GradientStop Color="#f7f6f4" Offset="0"/>
-    </LinearGradientBrush>
-
-    <LinearGradientBrush x:Key="Red">
-        <GradientStop Color="#fb7657" Offset="0"/>
-    </LinearGradientBrush>
 </ResourceDictionary>

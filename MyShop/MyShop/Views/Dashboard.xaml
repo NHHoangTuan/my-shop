@@ -45,17 +45,6 @@
                         <TextBlock Text="Have a good day" Foreground="#6c879a" Margin="0 3 0 0"/>
                     </StackPanel>
                 </StackPanel>
-
-                <!--Search text box-->
-                <Grid Width="300" HorizontalAlignment="Right">
-                    <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#868686" Panel.ZIndex="1"
-               Text="Search here ..." IsHitTestVisible="False"
-               Visibility="{Binding ElementName=textBoxSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVisConverter}}"/>
-                    <TextBox x:Name="textBoxSearch" Style="{StaticResource searchTextBox}"/>
-
-                    <Icon:PackIconMaterial Kind="Magnify" Width="18" Height="18" Foreground="#ff6d46" Margin="0 0 15 0"
-                           HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                </Grid>
             </Grid>
         </Border>
         

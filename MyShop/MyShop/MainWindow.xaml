@@ -9,6 +9,7 @@
         mc:Ignorable="d" 
         Title="MainWindow" Height="780" Width="1280" 
         Background="Transparent" Loaded="Window_Loaded">
+
     <Border  Padding="15" Background="#f7f6f4" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         
         <Grid>
@@ -17,12 +18,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            
-            
-
-
             <!--Menu-->
-            <Border Grid.RowSpan="3" CornerRadius="25">
+            <Border Grid.RowSpan="3" CornerRadius="15">
                 <Border.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="#fb7154" Offset="0"/>
@@ -57,46 +54,50 @@
                     </StackPanel>
                     
                     <!--Menu Items-->
-                    <Button Style="{StaticResource menuButton}" Click="dashboardButton_Click" x:Name="dashboardButton">
+                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="dashboardButton_Click" x:Name="dashboardButton">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
-                    </Button>
+                    </ToggleButton>
 
-                    <Button Style="{StaticResource menuButton}" >
+                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="manageproductsButton_Click" x:Name="manageproductsButton" >
                         <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="Reproduction" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Manage Products" Style="{StaticResource menuButtonText}"/>
+                            <Icon:PackIconMaterial Kind="Reproduction" Style="{DynamicResource menuButtonIcon}"/>
+                            <TextBlock Text="Manage Products" Style="{DynamicResource menuButtonText}"/>
                         </StackPanel>
-                    </Button>
+                    </ToggleButton>
 
-                    <Button Style="{StaticResource menuButton}" >
+                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="manageordersButton_Click" x:Name="manageordersButton">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Receipt" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Manage Orders" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
-                    </Button>
+                    </ToggleButton>
 
-                    <Button Style="{StaticResource menuButton}" >
+                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="statisticButton_Click" x:Name="statisticButton">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="ChartBar" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Statistic" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
-                    </Button>
+                    </ToggleButton>
 
-                    <Button Style="{StaticResource menuButton}" >
+                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="configurationButton_Click" x:Name="configurationButton" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Cog" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Configuration" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
-                    </Button>
+                    </ToggleButton>
                 </StackPanel>
             </Border>
 
-            <Frame x:Name="pageNavigation" Grid.Column="1">
-                
-            </Frame>
+            
+                <Frame x:Name="pageNavigation" Grid.Column="1" NavigationUIVisibility="Hidden" Margin="10 0 0 0">
+
+                </Frame>
+            
+
+            
 
 
         </Grid>

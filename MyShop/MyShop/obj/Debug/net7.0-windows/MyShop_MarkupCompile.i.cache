@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 D:\IT\Github\MyShop_Window\MyShop\MyShop\App.xaml
-5469632565
+11279671514
 6-1992150873
-82060123365
+141055879331
 205977828487
-MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;Views\Dashboard.xaml;Views\Login.xaml;
+MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;Views\AddOrder.xaml;Views\AddProduct.xaml;Views\Configuration.xaml;Views\Dashboard.xaml;Views\Login.xaml;Views\ManageOrders.xaml;Views\ManageProducts.xaml;Views\Statistic.xaml;
 
 True
 

@@ -24,5 +24,25 @@ namespace MyShop.Views
         {
             InitializeComponent();
         }
+
+        private void MonthCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void YearCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void productStatisticsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void sellingProductsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

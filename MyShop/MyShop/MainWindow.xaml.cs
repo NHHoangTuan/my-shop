@@ -23,19 +23,18 @@ namespace MyShop
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
-
         Dashboard dashboard;
+        ManageCategory manageCategories;
         ManageProducts manageProducts;
         ManageOrders manageOrders;
         Statistic statistic;
         Configuration configuration;
         ToggleButton[] buttons;
-        
 
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
 
         private void changeButtonColor(ToggleButton b)
         {
@@ -84,7 +83,7 @@ namespace MyShop
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
           
-            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, manageproductsButton, manageordersButton, statisticButton, configurationButton};
+            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, managecategoriesButton, manageproductsButton, manageordersButton, statisticButton, configurationButton};
             buttons = new_buttons;
             dashboardButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
 
@@ -145,6 +144,18 @@ namespace MyShop
             }
             configuration = new Configuration();
             pageNavigation.NavigationService.Navigate(configuration);
+        }
+
+        private void managecategoriesButton_Click(object sender, RoutedEventArgs e)
+        {
+            changeButtonColor(managecategoriesButton);
+            if (pageNavigation.NavigationService.Content != null)
+            {
+                pageNavigation.NavigationService.RemoveBackEntry();
+            }
+            manageCategories = new ManageCategory();
+            pageNavigation.NavigationService.Navigate(manageCategories);
+            
         }
     }
 }

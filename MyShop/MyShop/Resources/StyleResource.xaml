@@ -116,8 +116,8 @@
     </Style>
 
     <Style x:Key="menuToggleButton" TargetType="ToggleButton">
-        <Setter Property="Background" Value="#00ffffff" />
-        <Setter Property="Foreground" Value="#fed6ce" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="#353935" />
         <Setter Property="Height" Value="50" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Margin" Value="15 10 15 10" />
@@ -130,12 +130,12 @@
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#f7f6f4" />
-                            <Setter Property="Foreground" Value="#fb7657"/>
+                            <Setter Property="Background" Value="#fff" />
+                            <Setter Property="Foreground" Value="#696866"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Background" Value="#f7f6f4" />
-                            <Setter Property="Foreground" Value="#fb7657"/>
+                            <Setter Property="Background" Value="#fff" />
+                            <Setter Property="Foreground" Value="#696866"/>
                         </Trigger>
 
 
@@ -149,13 +149,13 @@
 
 
     <Style x:Key="menuButtonIcon" TargetType="Icon:PackIconMaterial">
-        <Setter Property="Margin" Value="20 0 0 0" />
+        <Setter Property="Margin" Value="15 0 0 0" />
         <Setter Property="Width" Value="24" />
         <Setter Property="Height" Value="24" />
         <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ToggleButton}}}"/>
     </Style>
     <Style x:Key="menuButtonText" TargetType="TextBlock">
-        <Setter Property="Margin" Value="20 0 0 2" />
+        <Setter Property="Margin" Value="12 0 0 2" />
         <Setter Property="FontSize" Value="18" />
         <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
         <Setter Property="FontWeight" Value="Bold"/>

@@ -58,3 +58,13 @@ D:\IT\Github\MyShop_Window\MyShop\MyShop\bin\Debug\net7.0-windows\Assets\Images\
 D:\IT\Github\MyShop_Window\MyShop\MyShop\bin\Debug\net7.0-windows\Assets\Images\Design\prev_icon.png
 D:\IT\Github\MyShop_Window\MyShop\MyShop\obj\Debug\net7.0-windows\Views\AddOrder.g.cs
 D:\IT\Github\MyShop_Window\MyShop\MyShop\obj\Debug\net7.0-windows\Views\AddOrder.baml
+D:\IT\Github\MyShop_Window\MyShop\MyShop\obj\Debug\net7.0-windows\Views\ManageCategory.g.cs
+D:\IT\Github\MyShop_Window\MyShop\MyShop\obj\Debug\net7.0-windows\Views\ManageCategory.baml
+D:\IT\Github\MyShop_Window\MyShop\MyShop\obj\Debug\net7.0-windows\Views\AddCategory.g.cs
+D:\IT\Github\MyShop_Window\MyShop\MyShop\obj\Debug\net7.0-windows\Views\UpdateCategory.g.cs
+D:\IT\Github\MyShop_Window\MyShop\MyShop\obj\Debug\net7.0-windows\Views\AddCategory.baml
+D:\IT\Github\MyShop_Window\MyShop\MyShop\obj\Debug\net7.0-windows\Views\UpdateCategory.baml
+D:\IT\Github\MyShop_Window\MyShop\MyShop\obj\Debug\net7.0-windows\Views\ProductDetail.g.cs
+D:\IT\Github\MyShop_Window\MyShop\MyShop\obj\Debug\net7.0-windows\Views\UpdateOrder.g.cs
+D:\IT\Github\MyShop_Window\MyShop\MyShop\obj\Debug\net7.0-windows\Views\ProductDetail.baml
+D:\IT\Github\MyShop_Window\MyShop\MyShop\obj\Debug\net7.0-windows\Views\UpdateOrder.baml

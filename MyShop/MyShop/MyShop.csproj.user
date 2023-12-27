@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\AddCategory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\AddOrder.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,13 +25,25 @@
     <Compile Update="Views\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ManageCategory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\ManageOrders.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\ManageProducts.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ProductDetail.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Statistic.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpdateCategory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpdateOrder.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -40,6 +55,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\StyleResource.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AddCategory.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\AddOrder.xaml">
@@ -57,13 +75,25 @@
     <Page Update="Views\Login.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\ManageCategory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\ManageOrders.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ManageProducts.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\ProductDetail.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Statistic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpdateCategory.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpdateOrder.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

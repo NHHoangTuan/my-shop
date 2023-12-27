@@ -316,11 +316,11 @@ Click="AddOrder_Click"
         Background="White" 
         HorizontalAlignment="Right"
                     Margin="0 0 20 0"
-        Height="35"
+        Height="30"
         Grid.Row="2"
-        Width="220">
+        Width="180">
 
-                <Grid>
+                <Grid Width="150">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
@@ -335,7 +335,7 @@ Click="AddOrder_Click"
             BorderThickness="0"
             Click="FirstButton_Click"
                         >
-                        <Image Source="{Binding FirstIcon, Converter={StaticResource absoluteConverter}}" Width="20" Height="20"/>
+                        <Image Source="/Assets/Images/Design/first_icon.png" Width="15" Height="15"/>
                     </Button>
                     <Button
             Name="PrevButton" Style="{StaticResource MyTransButton}"
@@ -343,7 +343,7 @@ Click="AddOrder_Click"
             Background="Transparent"
             BorderThickness="0"
             Click="PrevButton_Click">
-                        <Image Source="{Binding PrevIcon, Converter={StaticResource absoluteConverter}}" Width="20" Height="20"/>
+                        <Image Source="/Assets/Images/Design/prev_icon.png" Width="15" Height="15"/>
                     </Button>
 
                     <TextBlock 
@@ -363,7 +363,7 @@ Click="AddOrder_Click"
             Background="Transparent"
             BorderThickness="0"
             Click="NextButton_Click">
-                        <Image Source="{Binding NextIcon, Converter={StaticResource absoluteConverter}}" Width="20" Height="20"/>
+                        <Image Source="/Assets/Images/Design/next_icon.png" Width="15" Height="15"/>
                     </Button>
 
                     <Button 
@@ -372,7 +372,7 @@ Click="AddOrder_Click"
             Background="Transparent"
             BorderThickness="0"
             Click="LastButton_Click">
-                        <Image Source="{Binding LastIcon, Converter={StaticResource absoluteConverter}}" Width="20" Height="20"/>
+                        <Image Source="/Assets/Images/Design/last_icon.png" Width="15" Height="15"/>
                     </Button>
                 </Grid>
             </Border>

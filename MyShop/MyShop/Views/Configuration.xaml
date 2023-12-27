@@ -8,64 +8,79 @@
       d:DesignHeight="780" d:DesignWidth="1030"
       Title="Configuration">
 
-    <Grid>
-        <Border Width="780" Height="680" BorderThickness="0.5" BorderBrush="Red" CornerRadius="5">
-            <Grid>
+    <Border CornerRadius="15" Background="LightGray">
+        <Grid>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="0.2*"/>
-                </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            
+            <Border CornerRadius="15" Background="#60ffffff" Grid.Row="1" Grid.Column="1">
+                <Grid>
 
-                <StackPanel Margin="20" HorizontalAlignment="Center">
-                    <Label Margin="0 0 0 20" FontWeight="Bold" FontSize="30" HorizontalAlignment="Center">Application Settings</Label>
-                    <WrapPanel Orientation="Horizontal">
-                        <CheckBox BorderBrush="MediumPurple" Name="lastWindowCheckBox" Margin="0 0 0 20" FontSize="30" VerticalAlignment="Center"
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="0.4*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Margin="20" HorizontalAlignment="Center">
+                        <Label Margin="0 0 0 30" FontWeight="Bold" FontSize="30" HorizontalAlignment="Center">Application Settings</Label>
+                        <WrapPanel Orientation="Horizontal">
+                            <CheckBox BorderBrush="MediumPurple" Name="lastWindowCheckBox" Margin="0 0 0 20" FontSize="30" VerticalAlignment="Center"
                                   >
-                            <CheckBox.Resources>
-                                <!--Unchecked state-->
-                                <SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="Red"/>
-                                <!--Checked state-->
-                                <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="LightSkyBlue"/>
-                            </CheckBox.Resources>
-                        </CheckBox>
-                        <TextBlock Text="Open the last window when application startup" TextWrapping="WrapWithOverflow"
+                                <CheckBox.Resources>
+                                    <!--Unchecked state-->
+                                    <SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="Red"/>
+                                    <!--Checked state-->
+                                    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="LightSkyBlue"/>
+                                </CheckBox.Resources>
+                            </CheckBox>
+                            <TextBlock Text="Open the last window when application startup" TextWrapping="WrapWithOverflow"
                                    Margin="10 0 0 0" FontSize="20" VerticalAlignment="Center"/>
-                    </WrapPanel>
-                    
-                </StackPanel>
-                
-                
-                <StackPanel   Margin="20" Grid.Column="1">
-                   
-                    <TextBlock Text="Number of product per page" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"
+                        </WrapPanel>
+
+                    </StackPanel>
+
+
+                    <StackPanel   Margin="20" Grid.Column="1">
+
+                        <TextBlock Text="Number of product per page" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"
                            TextWrapping="WrapWithOverflow"/>
-                    <ComboBox HorizontalAlignment="Center" BorderThickness="1" BorderBrush="CadetBlue" x:Name="nProductComboBox" Width="50" Height="50" >
-                        <ComboBoxItem>3</ComboBoxItem>
-                        <ComboBoxItem>6</ComboBoxItem>
-                        <ComboBoxItem>9</ComboBoxItem>
-                        <ComboBoxItem>12</ComboBoxItem>
-                        <ComboBoxItem>20</ComboBoxItem>
+                        <ComboBox HorizontalAlignment="Center" BorderThickness="1" BorderBrush="CadetBlue" x:Name="nProductComboBox" Width="50" Height="50" >
+                            <ComboBoxItem>3</ComboBoxItem>
+                            <ComboBoxItem>6</ComboBoxItem>
+                            <ComboBoxItem>9</ComboBoxItem>
+                            <ComboBoxItem>12</ComboBoxItem>
+                            <ComboBoxItem>20</ComboBoxItem>
 
-                    </ComboBox>
+                        </ComboBox>
 
 
-                </StackPanel>
+                    </StackPanel>
 
-                <Button Height="30" Width="100" x:Name="cancelButton" Content="Cancel"  
+                    <Button Height="30" Width="100" x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Center" VerticalAlignment="Center"
                         Margin="10" Style="{StaticResource MyButtonStyle}"
                         Grid.Column="0" Grid.Row="1"/>
-                <Button Height="30" Width="100" x:Name="saveButton" Content="Save"  
+                    <Button Height="30" Width="100" x:Name="saveButton" Content="Save"  HorizontalAlignment="Center" VerticalAlignment="Center"
                         Margin="10" Style="{StaticResource MyButtonStyle}"
                         Grid.Column="1" Grid.Row="1"/>
 
-            </Grid>
-        </Border>
-        
-    </Grid>
+                </Grid>
+            </Border>
+
+        </Grid>
+    </Border>
 </Page>

@@ -22,8 +22,8 @@
             <Border Grid.RowSpan="3" CornerRadius="15">
                 <Border.Background>
                     <LinearGradientBrush>
-                        <GradientStop Color="#fb7154" Offset="0"/>
-                        <GradientStop Color="#fb6161" Offset="0.8" />
+                        <GradientStop Color="#1182f2" Offset="0" />
+                        <GradientStop Color="#11f2e7" Offset="1.2"/>
                     </LinearGradientBrush>
                 </Border.Background>
 
@@ -58,6 +58,13 @@
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="managecategoriesButton_Click" x:Name="managecategoriesButton" >
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="ShapeOutline" Style="{DynamicResource menuButtonIcon}"/>
+                            <TextBlock Text="Manage Categories" Style="{DynamicResource menuButtonText}"/>
                         </StackPanel>
                     </ToggleButton>
 

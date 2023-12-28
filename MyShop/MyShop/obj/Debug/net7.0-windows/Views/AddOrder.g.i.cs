@@ -120,7 +120,7 @@ namespace MyShop.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MyShop;component/views/addorder.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MyShop;V1.0.0.0;component/views/addorder.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\AddOrder.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

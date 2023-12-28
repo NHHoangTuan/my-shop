@@ -129,7 +129,7 @@ namespace MyShop.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/MyShop;component/views/statistic.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/MyShop;V1.0.0.0;component/views/statistic.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\Statistic.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.IconPacks;
+using MyShop.Config;
 using MyShop.Views;
 using System;
 using System.Collections.Generic;
@@ -29,11 +30,20 @@ namespace MyShop
         ManageOrders manageOrders;
         Statistic statistic;
         Configuration configuration;
+        ManagePromotion promotion;
         ToggleButton[] buttons;
 
         public MainWindow()
         {
             InitializeComponent();
+            dashboard = new Dashboard();
+            manageCategories = new ManageCategory();
+            manageProducts = new ManageProducts();
+            manageOrders = new ManageOrders();
+            statistic = new Statistic(pageNavigation);
+            configuration = new Configuration();
+            promotion = new ManagePromotion();
+           
         }
 
         private void changeButtonColor(ToggleButton b)
@@ -83,9 +93,37 @@ namespace MyShop
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
           
-            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, managecategoriesButton, manageproductsButton, manageordersButton, statisticButton, configurationButton};
+            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, managecategoriesButton, manageproductsButton, 
+                manageordersButton, statisticButton, configurationButton, promotionButton};
             buttons = new_buttons;
-            dashboardButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            if (AppConfig.GetValue("StartUpPage") == "Dashboard")
+            {
+                dashboardButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
+            else if (AppConfig.GetValue("StartUpPage") == "ManageProduct")
+            {
+                manageproductsButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
+            else if (AppConfig.GetValue("StartUpPage") == "ManageCategory")
+            {
+                managecategoriesButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
+            else if (AppConfig.GetValue("StartUpPage") == "ManageOrder")
+            {
+                manageordersButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
+            else if (AppConfig.GetValue("StartUpPage") == "Statistic")
+            {
+                statisticButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
+            else if (AppConfig.GetValue("StartUpPage") == "Configuration")
+            {
+                configurationButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
+            else if (AppConfig.GetValue("StartUpPage") == "Promotion")
+            {
+                promotionButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
 
         }
 
@@ -96,8 +134,9 @@ namespace MyShop
             {
                 pageNavigation.NavigationService.RemoveBackEntry();
             }
-            dashboard = new Dashboard();
+            
             pageNavigation.NavigationService.Navigate(dashboard);
+            AppConfig.SetValue("StartUpPage", "Dashboard");
         }
 
        
@@ -109,8 +148,9 @@ namespace MyShop
             {
                 pageNavigation.NavigationService.RemoveBackEntry();
             }
-            manageProducts = new ManageProducts();
+           
             pageNavigation.NavigationService.Navigate(manageProducts);
+            AppConfig.SetValue("StartUpPage", "ManageProduct");
         }
 
         private void manageordersButton_Click(object sender, RoutedEventArgs e)
@@ -120,8 +160,9 @@ namespace MyShop
             {
                 pageNavigation.NavigationService.RemoveBackEntry();
             }
-            manageOrders = new ManageOrders();
+            
             pageNavigation.NavigationService.Navigate(manageOrders);
+            AppConfig.SetValue("StartUpPage", "ManageOrder");
         }
 
         private void statisticButton_Click(object sender, RoutedEventArgs e)
@@ -131,8 +172,9 @@ namespace MyShop
             {
                 pageNavigation.NavigationService.RemoveBackEntry();
             }
-            statistic = new Statistic();
+           
             pageNavigation.NavigationService.Navigate(statistic);
+            AppConfig.SetValue("StartUpPage", "Statistic");
         }
 
         private void configurationButton_Click(object sender, RoutedEventArgs e)
@@ -142,8 +184,9 @@ namespace MyShop
             {
                 pageNavigation.NavigationService.RemoveBackEntry();
             }
-            configuration = new Configuration();
+            
             pageNavigation.NavigationService.Navigate(configuration);
+            AppConfig.SetValue("StartUpPage", "Configuration");
         }
 
         private void managecategoriesButton_Click(object sender, RoutedEventArgs e)
@@ -153,9 +196,22 @@ namespace MyShop
             {
                 pageNavigation.NavigationService.RemoveBackEntry();
             }
-            manageCategories = new ManageCategory();
+          
             pageNavigation.NavigationService.Navigate(manageCategories);
-            
+            AppConfig.SetValue("StartUpPage", "ManageCategory");
+
+        }
+
+        private void promotionButton_Click(object sender, RoutedEventArgs e)
+        {
+            changeButtonColor(promotionButton);
+            if (pageNavigation.NavigationService.Content != null)
+            {
+                pageNavigation.NavigationService.RemoveBackEntry();
+            }
+         
+            pageNavigation.NavigationService.Navigate(promotion);
+            AppConfig.SetValue("StartUpPage", "Promotion");
         }
     }
 }

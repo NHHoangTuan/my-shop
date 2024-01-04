@@ -7,7 +7,7 @@
         xmlns:local1="clr-namespace:MyShop.Converter"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="UpdateCategory" Height="500" Width="320">
+        Title="UpdateCategory" Height="510" Width="350">
     <Window.Resources>
         <local1:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
     </Window.Resources>
@@ -34,7 +34,7 @@ Margin="20 10 10 10">
         Width="240"
         Margin="0"
         HorizontalAlignment="Center">
-                                <TextBox Text="{Binding CatName}"
+                                <TextBox Text="{Binding catName}"
             BorderThickness="0"
             VerticalContentAlignment="Center"
             FontSize="13"
@@ -80,7 +80,7 @@ Margin="20 10 10 10">
             Width="220"
             Margin="0"
             HorizontalAlignment="Center">
-                                <TextBox Text="{Binding Description}"
+                                <TextBox Text="{Binding description}"
                 BorderThickness="0"
                 VerticalContentAlignment="Center"
                 FontSize="13"
@@ -139,12 +139,12 @@ Style="{StaticResource MyButtonStyle}">
 />
                             </Button>
                             <Image
-Name="AddedImage"
+Name="UpdateImage"
 VerticalAlignment="Top"
 Margin="20, 0, 0,0"
 Width="100"
 Height="100"
-Source="{Binding ImagePath}"
+Source="{Binding logoPath, Converter={StaticResource absoluteConverter}}"
 HorizontalAlignment="Center">
 
                             </Image>

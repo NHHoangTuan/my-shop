@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using MyShop.BUS;
+using MyShop.DTO;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +23,63 @@ namespace MyShop.Views
     /// </summary>
     public partial class AddProduct : Window
     {
-        public AddProduct()
+
+        private FileInfo? _selectedImage = null;
+        private PhoneBUS _phoneBUS;
+        private bool _isImageChanged = false;
+        public Phone newPhone { get; set; }
+        public int catIndex = -1;
+
+        public AddProduct(List<Category> categories)
         {
             InitializeComponent();
+            _phoneBUS = new PhoneBUS();
+            newPhone = new Phone();
+            this.DataContext = newPhone;
+            CategoryCombobox.ItemsSource = categories;
+        }
+
+        private void SaveProduct_Click(object sender, RoutedEventArgs e)
+        {
+            var category = (Category)CategoryCombobox.SelectedItem;
+
+            if (_selectedImage == null)
+            {
+                MessageBox.Show("Please enter image");
+                return;
+            }
+            if (category == null)
+            {
+                MessageBox.Show(this, "Invalid category");
+                return;
+            }
+            newPhone.category = category;
+            int id = _phoneBUS.saveProduct(newPhone);
+            string key = Guid.NewGuid().ToString();
+            newPhone.imagePath = _phoneBUS.uploadImage(_selectedImage, id, key);
+            newPhone.phoneID = id;
+            newPhone.promotionPrice = newPhone.price;
+            MessageBox.Show("Add phone success", "Notice", MessageBoxButton.OK);
+            DialogResult = true;
+        }
+
+        private void AddImageButton_Click(object sender, RoutedEventArgs e)
+        {
+            var screen = new OpenFileDialog();
+            screen.Filter = "Files|*.png; *.jpg; *.jpeg;";
+            if (screen.ShowDialog() == true)
+            {
+                _isImageChanged = true;
+                _selectedImage = new FileInfo(screen.FileName);
+
+                var bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(screen.FileName, UriKind.Absolute);
+                bitmap.EndInit();
+
+                AddedImage.Source = bitmap;
+
+            }
         }
     }
 }

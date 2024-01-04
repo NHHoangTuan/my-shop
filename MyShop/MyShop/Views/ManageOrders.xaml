@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:MyShop.Views"
       xmlns:local1="clr-namespace:MyShop.Converter"
       mc:Ignorable="d" 
-      d:DesignHeight="680" d:DesignWidth="930"
+      d:DesignHeight="730" d:DesignWidth="990"
       Title="ManageOrders"
       Loaded="Page_Loaded"
       >
@@ -31,7 +31,7 @@
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.7*"/>
                     </Grid.ColumnDefinitions>
 
 
@@ -43,13 +43,13 @@
                         <StackPanel Orientation="Horizontal" Margin="5 5 80 5">
                             <TextBlock Text="From" VerticalAlignment="Center" Margin="20 0 20 0" FontWeight="Bold" FontSize="15"/>
                             <DatePicker SelectedDateFormat="Short"   DisplayDateStart="1/04/23"
-                                x:Name="dateStartPicker" Width="70"
+                                x:Name="dateStartPicker" Width="120"
                                 FirstDayOfWeek="Monday" VerticalAlignment="Center"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="80 5 5 5">
                             <TextBlock Text="To" VerticalAlignment="Center" Margin="20 0 20 0" FontWeight="Bold" FontSize="15"/>
                             <DatePicker SelectedDateFormat="Short" x:Name="dateEndPicker"
-                                DisplayDateStart="1/04/23" Width="70"
+                                DisplayDateStart="1/04/23" Width="120"
                                 FirstDayOfWeek="Monday" VerticalAlignment="Center"/>
                         </StackPanel>
 
@@ -118,7 +118,7 @@ Click="AddOrder_Click"
             <Border 
     Grid.Row="1"
     Background="#60ffffff"
-            
+            Name="myBorder"
     CornerRadius="20"
     Margin="25 10 25 10"
       >
@@ -139,7 +139,7 @@ Click="AddOrder_Click"
             Grid.ColumnSpan="2"
             Foreground="#8B4000"
             VerticalAlignment="Center"
-            FontSize="16"
+            FontSize="18"
             FontWeight="Bold"
             FontFamily="Segoe UI"
         >
@@ -153,11 +153,11 @@ Click="AddOrder_Click"
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.6*"/>
                             <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="1.7*"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Margin="15 0 0 0">
+                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Margin="0 0 0 0" HorizontalAlignment="Center">
                             <Icon:PackIconMaterial 
                     Width="16"
                     Height="16"
@@ -168,7 +168,7 @@ Click="AddOrder_Click"
                 />
                             <TextBlock
                     Text="ID"
-                    FontSize="12"
+                    FontSize="14"
                     FontWeight="Bold"
                     Foreground="#353935">
 
@@ -176,7 +176,7 @@ Click="AddOrder_Click"
                         </StackPanel>
 
 
-                        <StackPanel Margin="-50, 0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="1">
+                        <StackPanel Margin="0, 0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="1">
                             <Icon:PackIconMaterial 
                     Width="16"
                     Height="16"
@@ -188,12 +188,12 @@ Click="AddOrder_Click"
                             <TextBlock
                 Text="Date"
                 VerticalAlignment="Center"
-                FontSize="12"
+                FontSize="14"
                 FontWeight="Bold"
                 Foreground="#353935"/>
                         </StackPanel>
 
-                        <StackPanel Margin="10, 0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="2">
+                        <StackPanel Margin="0, 0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="2">
                             <Icon:PackIconMaterial 
                     Width="16"
                     Height="16"
@@ -206,12 +206,12 @@ Click="AddOrder_Click"
                             <TextBlock
                 Text="Customer"
                 VerticalAlignment="Center"
-                FontSize="12"
+                FontSize="14"
                 FontWeight="Bold"
                 Foreground="#353935"/>
                         </StackPanel>
 
-                        <StackPanel Margin="0, 0,50,0" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="3">
+                        <StackPanel Margin="0, 0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="3">
                             <Icon:PackIconMaterial 
                     Width="16"
                     Height="16"
@@ -224,7 +224,7 @@ Click="AddOrder_Click"
                             <TextBlock
                 Text="Total Payment"
                 VerticalAlignment="Center"
-                FontSize="12"
+                FontSize="14"
                 FontWeight="Bold"
                 Foreground="#353935"/>
                         </StackPanel>
@@ -242,13 +242,12 @@ Click="AddOrder_Click"
                 Background="Transparent">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Grid Width="800"
-                          Height="35"
+                                <Grid Height="35" Width="{Binding ElementName=myBorder, Path=ActualWidth}"
                           Margin="10, 0, 10, 0">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.3*"/>
+                                        <ColumnDefinition Width="0.6*"/>
                                         <ColumnDefinition Width="1*"/>
-                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1.7*"/>
                                         <ColumnDefinition Width="1*"/>
                                     </Grid.ColumnDefinitions>
 
@@ -257,15 +256,15 @@ Click="AddOrder_Click"
                             Margin="0, 0, 0, 0"
                             FontWeight="Medium"
                             Foreground="#353935"
-                            HorizontalAlignment="Left"
+                            HorizontalAlignment="Center"
                             VerticalAlignment="Center">
                             <Run Text="HD -"></Run>
-                            <Run Text="{Binding OrderID}"></Run>
+                            <Run Text="{Binding orderID}"></Run>
                                     </TextBlock>
 
                                     <TextBlock
                             Grid.Column="1"
-                            Text="{Binding CreateAt, StringFormat=dd/MM/yyyy}"
+                            Text="{Binding orderDate, StringFormat=dd/MM/yyyy}"
                             FontWeight="Medium"
                             Foreground="#353935"
                             HorizontalAlignment="Center"
@@ -273,7 +272,7 @@ Click="AddOrder_Click"
 
                                     <TextBlock
                             Grid.Column="2"
-                            Text="{Binding CusName}"
+                            Text="{Binding cusName}"
                             FontWeight="Medium"
                             Foreground="#353935"
                             HorizontalAlignment="Center"
@@ -281,7 +280,7 @@ Click="AddOrder_Click"
 
                                     <TextBlock
                             Grid.Column="3"
-                            Text="{Binding FinalTotal}"
+                            Text="{Binding priceTotal}"
                             TextWrapping="Wrap"
                             FontWeight="Medium"
                             HorizontalAlignment="Center"
@@ -298,20 +297,18 @@ Click="AddOrder_Click"
                             </Style>
                         </ListView.ItemContainerStyle>
                     </ListView>
+
+                    <TextBlock 
+ Foreground="#353935"
+ FontWeight="Medium" 
+ HorizontalAlignment="Center"
+VerticalAlignment="Center"
+x:Name="MessageText" 
+Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2"
+d:Text="Opps!"/>
+
                 </Grid>
             </Border>
-
-
-            <TextBlock 
-    Name="infoTextBlock"
-    Grid.Row="2"
-    Text = "Showing 12 of 72 orders" 
-    Margin="20, 0, 200, 0"
-    VerticalAlignment="Center"
-    Foreground="#353935"
-    FontWeight="Medium"
-                FontSize="15"
-    />
             <Border BorderThickness="0.5" BorderBrush="Orange" CornerRadius="15"
         Background="White" 
         HorizontalAlignment="Right"

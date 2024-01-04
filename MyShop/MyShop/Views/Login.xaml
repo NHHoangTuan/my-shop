@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MyShop.Views" xmlns:local1="clr-namespace:MyShop.Converter"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         Background="Transparent"
-        Title="Login" Height="500" Width="800">
+        Title="Login" Height="500" Width="800" Loaded="Window_Loaded">
     <Window.Resources>
         <local1:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
     </Window.Resources>
@@ -73,9 +73,15 @@
                     </Grid>
                 </Border>
 
-                <CheckBox x:Name="rememberCheckBox" Content="Remember" Margin="74 10 0 0"/>
+                <CheckBox x:Name="rememberCheckBox" Content="Remember" Margin="74 10 0 0" Click="rememberCheckBox_Click"/>
 
-                <Button Content="Sign In" Click="Button_Click" Style="{StaticResource SignInButton}"/>
+                <StackPanel Orientation="Horizontal" Margin="0 20 0 0" HorizontalAlignment="Center">
+                    <Button Name ="SignInButton" Content="Sign In" Click="SignInButton_Click" Style="{StaticResource SignInButton}"
+                            Margin="0 0 30 0"/>
+                    <Button Name ="SignUpButton" Content="Sign Up" Click="SignUpButton_Click" Style="{StaticResource SignInButton}"
+                            Margin="30 0 0 0"/>
+                </StackPanel>
+                
             </StackPanel>
         </Border>
     </Grid>

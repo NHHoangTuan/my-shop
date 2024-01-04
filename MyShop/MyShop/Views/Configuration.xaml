@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:MyShop.Views"
       mc:Ignorable="d" 
       d:DesignHeight="780" d:DesignWidth="1030"
-      Title="Configuration">
+      Title="Configuration" Loaded="Page_Loaded">
 
     <Border CornerRadius="15" Background="LightGray">
         <Grid>
@@ -40,6 +40,7 @@
                         <Label Margin="0 0 0 30" FontWeight="Bold" FontSize="30" HorizontalAlignment="Center">Application Settings</Label>
                         <WrapPanel Orientation="Horizontal">
                             <CheckBox BorderBrush="MediumPurple" Name="lastWindowCheckBox" Margin="0 0 0 20" FontSize="30" VerticalAlignment="Center"
+                                      Click="lastWindowCheckBox_Click"
                                   >
                                 <CheckBox.Resources>
                                     <!--Unchecked state-->
@@ -61,10 +62,15 @@
                            TextWrapping="WrapWithOverflow"/>
                         <ComboBox HorizontalAlignment="Center" BorderThickness="1" BorderBrush="CadetBlue" x:Name="nProductComboBox" Width="50" Height="50" >
                             <ComboBoxItem>3</ComboBoxItem>
+                            <ComboBoxItem>4</ComboBoxItem>
+                            <ComboBoxItem>5</ComboBoxItem>
                             <ComboBoxItem>6</ComboBoxItem>
+                            <ComboBoxItem>7</ComboBoxItem>
+                            <ComboBoxItem>8</ComboBoxItem>
                             <ComboBoxItem>9</ComboBoxItem>
+                            <ComboBoxItem>10</ComboBoxItem>
+                            <ComboBoxItem>11</ComboBoxItem>
                             <ComboBoxItem>12</ComboBoxItem>
-                            <ComboBoxItem>20</ComboBoxItem>
 
                         </ComboBox>
 
@@ -72,10 +78,10 @@
                     </StackPanel>
 
                     <Button Height="30" Width="100" x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Center" VerticalAlignment="Center"
-                        Margin="10" Style="{StaticResource MyButtonStyle}"
+                        Margin="10" Style="{StaticResource MyButtonStyle}" Click="cancelButton_Click"
                         Grid.Column="0" Grid.Row="1"/>
                     <Button Height="30" Width="100" x:Name="saveButton" Content="Save"  HorizontalAlignment="Center" VerticalAlignment="Center"
-                        Margin="10" Style="{StaticResource MyButtonStyle}"
+                        Margin="10" Style="{StaticResource MyButtonStyle}" Click="saveButton_Click"
                         Grid.Column="1" Grid.Row="1"/>
 
                 </Grid>

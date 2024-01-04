@@ -29,7 +29,7 @@
 
                 <StackPanel>
                     <!--Logo-->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30 10 100">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30 10 60">
                         <Grid>
                             <Border Background="#ffffff" Width="35" Height="35" CornerRadius="50"/>
                             <Border Width="35" Height="35" BorderBrush="#ffffff" BorderThickness="3" CornerRadius="50">
@@ -86,6 +86,13 @@
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="ChartBar" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Statistic" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="promotionButton_Click" x:Name="promotionButton">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="TicketPercentOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Promotion" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </ToggleButton>
 

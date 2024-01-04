@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using MyShop.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,10 @@ namespace MyShop.SQLHelper
     internal class SQLData
     {
 
-        private string _server;
+        /*private string _server;
         private string _databaseName;
         private string _user;
-        private string _password;
+        private string _password;*/
         public static bool isSelectedDatabase = false;
 
         private static SQLData? _instance = null;
@@ -29,23 +30,13 @@ namespace MyShop.SQLHelper
             return _instance;
         }
 
+        
+
         public SQLData()
         {
-            _server = "localhost";
-            _databaseName = "MyShop";
-            _user = "admin";
-            _password = "admin";
-            _connection = null;
-        }
+            
 
-        public SQLData(string server, string databaseName, string user, string password)
-        {
-            _server = server;
-            _databaseName = databaseName;
-            _user = user;
-            _password = password;
-
-            string? connectionString = AppConfig.AppConfig.ConnectionString();
+            string? connectionString = AppConfig.ConnectionString();
 
             _connection = new SqlConnection(connectionString);
 
@@ -64,7 +55,7 @@ namespace MyShop.SQLHelper
             _instance = this;
         }
 
-        public SqlConnection connection { get { return _connection; } }
+        public SqlConnection Connection { get { return _connection; } }
 
     }
 }

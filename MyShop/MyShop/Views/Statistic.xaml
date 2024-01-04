@@ -8,8 +8,8 @@
       xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d" 
-      d:DesignHeight="780" d:DesignWidth="1030"
-      Title="Statistic">
+      d:DesignHeight="730" d:DesignWidth="990"
+      Title="Statistic" Loaded="Page_Loaded">
 
     <Border CornerRadius="15" Background="LightGreen">
         <Grid>
@@ -61,7 +61,7 @@
     BorderBrush="LightGreen"
     HorizontalAlignment="Left"
     VerticalAlignment="Center"
-    
+    Click="Confirm_Click"
                 
     Margin="10,0,0, 0"
 >
@@ -145,6 +145,10 @@ FontWeight="Medium"
                     <ComboBoxItem>All Years</ComboBoxItem>
                 </ComboBox>
             </Border>
+
+
+            
+
 
 
             <!--Hiển thị content chính bên trong-->

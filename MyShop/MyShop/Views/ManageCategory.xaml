@@ -7,7 +7,7 @@
       xmlns:local1="clr-namespace:MyShop.Converter"
       mc:Ignorable="d" 
       d:DesignHeight="780" d:DesignWidth="1030"
-      Title="ManageCategory">
+      Title="ManageCategory" Loaded="Page_Loaded">
 
     <Page.Resources>
         <local1:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
@@ -45,7 +45,7 @@ Margin="45 20 45 25"
         Grid.ColumnSpan="2"
         Foreground="#8B4000"
         VerticalAlignment="Center"
-        FontSize="16"
+        FontSize="20"
         FontWeight="Bold"
         FontFamily="Segoe UI"
     >
@@ -57,28 +57,19 @@ Margin="45 20 45 25"
           Grid.Row="1"
           Margin="10, 0, 10, 0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.6*"/>
+                            
                             <ColumnDefinition/>
                             <ColumnDefinition/>
-                            <ColumnDefinition Width="1.3*"/>
+                            <ColumnDefinition Width="1.8*"/>
                         </Grid.ColumnDefinitions>
 
-                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 0">
+                       
 
-                            <TextBlock
-Text="#No."
-FontSize="12"
-FontWeight="Bold"
-Foreground="#353935">
-
-                            </TextBlock>
-                        </StackPanel>
-
-                        <StackPanel Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 0">
+                        <StackPanel Grid.Column="0" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 0">
 
                             <TextBlock
                 Text="Logo"
-                FontSize="12"
+                FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"
                 FontWeight="Bold"
                 Foreground="#353935">
 
@@ -86,23 +77,24 @@ Foreground="#353935">
                         </StackPanel>
 
 
-                        <StackPanel Margin="0, 0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="2">
+                        <StackPanel Margin="0, 0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="1">
 
                             <TextBlock
             Text="Name"
-            VerticalAlignment="Center"
-            FontSize="12"
+            VerticalAlignment="Center" HorizontalAlignment="Center"
+            FontSize="15"
             FontWeight="Bold"
             Foreground="#353935"/>
                         </StackPanel>
 
-                        <StackPanel Margin="0, 0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="3">
+                        <StackPanel Margin="0, 0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Column="2">
 
 
                             <TextBlock
             Text="Description"
             VerticalAlignment="Center"
-            FontSize="12"
+                                HorizontalAlignment="Center"
+            FontSize="15"
             FontWeight="Bold"
             Foreground="#353935"/>
                         </StackPanel>
@@ -111,7 +103,7 @@ Foreground="#353935">
 
                     <!--Hiển thị nếu không có sản phẩm nào được tìm thấy-->
                     <TextBlock 
-            Foreground="#353935"
+            Foreground="#353935" FontSize="15"
             FontWeight="Medium" 
             HorizontalAlignment="Center"
            VerticalAlignment="Center"
@@ -123,27 +115,29 @@ Foreground="#353935">
             Name="catagoryListView"
             BorderThickness="0"
             Grid.Row="2"
-            Grid.Column="0"
+            Grid.Column="1"
             Grid.ColumnSpan="2"
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-            Background="Transparent" >
+            Background="Transparent" SelectionChanged="catagoryListView_SelectionChanged" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Width="{Binding ActualWidth, ElementName=catagoryListView}" 
-                      Height="85"
-                      Margin="10, 0, 10, 0">
+                      Height="45"
+                      Margin="0, 10, 0, 10">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="0.6*"/>
+                                        
                                         <ColumnDefinition Width="1*"/>
                                         <ColumnDefinition Width="1*"/>
-                                        <ColumnDefinition Width="1.3*"/>
+                                        <ColumnDefinition Width="1.8*"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Image Source="{Binding CatID}" HorizontalAlignment="Center"/>
+
+
+                                    <Image Grid.Column="0" Source="{Binding logoPath, Converter={StaticResource absoluteConverter}}" HorizontalAlignment="Center"/>
 
                                     <TextBlock
                         Grid.Column="1"
-                        Text="{Binding CatLogo}"
+                        Text="{Binding catName}"
                         FontWeight="Medium"
                         Foreground="#353935"
                         HorizontalAlignment="Center"
@@ -151,15 +145,7 @@ Foreground="#353935">
 
                                     <TextBlock
                         Grid.Column="2"
-                        Text="{Binding CatName}"
-                        FontWeight="Medium"
-                        Foreground="#353935"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"/>
-
-                                    <TextBlock
-                        Grid.Column="3"
-                        Text="{Binding CatDescription}"
+                        Text="{Binding description}"
                         TextWrapping="Wrap"
                         FontWeight="Medium"
                         HorizontalAlignment="Center"

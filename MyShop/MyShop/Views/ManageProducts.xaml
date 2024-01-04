@@ -8,30 +8,36 @@
       xmlns:local1="clr-namespace:MyShop.Converter"
       xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="780" d:DesignWidth="1030"
-      Title="ManageProducts">
+      d:DesignHeight="730" d:DesignWidth="990"
+      Title="ManageProducts" Loaded="Page_Loaded">
 
     <Page.Resources>
         <local1:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
+        <local1:PromotionPercentConverter x:Key="percentConverter"/>
+        <local1:DecimalToCurrencyConverter x:Key="currencyConverter"/>
     </Page.Resources>
 
     <Border Background="LightSalmon" CornerRadius="15">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40*"/>
-                <ColumnDefinition Width="962*"/>
+                <ColumnDefinition Width="440*"/>
+                <ColumnDefinition Width="422*"/>
                 <ColumnDefinition Width="40*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="60"/>
-                <RowDefinition/>
-                <RowDefinition Height="58"/>
+                <RowDefinition Height="0.70*"/>
+                <RowDefinition Height="0.60*"/>
+                <RowDefinition Height="3.5*"/>
+                <RowDefinition Height="0.58*"/>
             </Grid.RowDefinitions>
 
 
             <!--Category list view-->
-            <ListView x:Name="categoriesListView" Margin="0 10 0 10" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" SelectionChanged="categoriesListView_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Visible" Style="{DynamicResource MaterialDesignListView}">
+            <ListView x:Name="categoriesListView" Margin="0 0 0 0" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="2"
+                      SelectionChanged="categoriesListView_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                      
+                      ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal"/>
@@ -39,13 +45,9 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <MaterialDesign:Chip
-  Content="iPhone">
-                            <MaterialDesign:Chip.Icon>
-                                <Image
-      Source="/Asset/Images/Design/iphone13.jpg" />
-                            </MaterialDesign:Chip.Icon>
-                        </MaterialDesign:Chip>
+                        <Button Style="{StaticResource MyButtonStyle}" Height="30" Width="Auto" BorderBrush="LightSalmon" BorderThickness="0.5" IsEnabled="False">
+                            <TextBlock Text="{Binding catName}" Margin="10 5 10 5"/>
+                        </Button>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -58,122 +60,141 @@
              HorizontalAlignment="Center"
             VerticalAlignment="Center"
             x:Name="MessageText" 
-            Grid.Row="2" Grid.Column="1" 
+            Grid.Row="2" Grid.Column="1"  Grid.ColumnSpan="2"
             d:Text="Opps! Không tìm thấy bất kì sản phẩm nào"/>
             
             
             <!--Hien thi danh sach san pham-->
-            <Border Grid.Row="2" Background="#60ffffff" Grid.Column="1" CornerRadius="15">
-                <Grid Margin="20">
+            <Border Grid.Row="2" Background="#60ffffff" Grid.Column="1" CornerRadius="15" Grid.ColumnSpan="2">
+                <Grid Margin="5">
 
-                    <Frame >
-
-                    </Frame>
+                    
 
                     <!--Hiển thị những sản phẩm-->
                     <ListView 
         
         Name="phoneListView"
         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+        
         HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
         HorizontalContentAlignment="Center"
         VerticalContentAlignment="Center"
         BorderThickness="0"
-        Margin="50, 0, 0, 0"
+        Margin="5 20 5 20"
         Background="Transparent"
         >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid 
-                Name="ProductItem"
-                Width="200"
-                Margin="0, 0, 0, 0"
-                Height="140">
+Name="ProductItem"
+Width="270"
+Margin="0"
+Height="200">
 
                                     <Button Name="ItemButton"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom"
-                    Width="155"
-                    Margin="10"
-                    Height="83"
-                    BorderThickness="0.5"
-                    BorderBrush="Orange"
-                    Padding="12, 8,8,8"
-                    IsEnabled="False"
-                    Style="{StaticResource MyButtonStyle}"
-                    >
-                                        <StackPanel VerticalAlignment="Center"
-                                Width="130"
-                                HorizontalAlignment="Left">
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Width="260"
+    Margin="0"
+    Height="190"
+    BorderThickness="0.5"
+    BorderBrush="Orange"
+    Padding="12, 8,8,8"
+    IsEnabled="False"
+    Style="{StaticResource MyButtonStyle}"
+                    
+    >
 
-                                            <StackPanel Orientation="Horizontal">
+                                        <Grid Width="250" Height="160">
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackPanel VerticalAlignment="Top" Margin="5 10 0 0" 
+               >
+
+                                                <StackPanel Orientation="Horizontal">
+
+
+                                                    <!-- binding -->
+                                                    <TextBlock Name="CatName" FontSize="13"
+               Text="{Binding category.catName}"
+               />
+                                                </StackPanel>
 
 
                                                 <!-- binding -->
-                                                <TextBlock Name="CatName"
-                                       Text="{Binding CatName}"
-                                       />
-                                            </StackPanel>
+                                                <TextBlock Name="ProName"
+                   Text="{Binding phoneName}" FontSize="19"
+                   TextWrapping="Wrap"
+                   Margin="0, 2, 0, 2"
+                   Foreground="#353935"
+                   FontWeight="Bold"
+                   />
 
-                                            <!-- binding -->
-                                            <TextBlock Name="ProName"
-                                   Text="{Binding ProName}"
-                                   TextWrapping="Wrap"
-                                   Margin="0, 2, 0, 2"
-                                   Foreground="#353935"
-                                   FontWeight="Bold"
-                                   />
+                                                <!-- binding -->
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Name="priceTextBlock" FontSize="15"
+                   Text="{Binding promotionPrice, Converter={StaticResource currencyConverter}}"
+                   FontWeight="Bold"
+                   Foreground="#8B4000"/>
 
-                                            <!-- binding -->
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock Name="priceTextBlock"
-                                   Text="{Binding PromotionPrice}"
-                                   FontWeight="Bold"
-                                   Foreground="#8B4000"/>
+                                                </StackPanel>
+
                                                 <Border
-                                HorizontalAlignment="Right"
-                                Name="PromotionBorder"
-                                Background="#30FF5733"
-                                CornerRadius="5"
-                                Margin="10, 0,0,0"
-                                Height="15"
-                                Width="36"
-                              >
+  HorizontalAlignment="Left"
+  Name="PromotionBorder"
+  Background="#30FF5733"
+  CornerRadius="5"
+  Margin="0, 5, 0,0"
+  Height="20"
+  Width="41"
+>
                                                     <TextBlock
-                                Name ="PromotionTextBlock"
-                                Foreground="DarkRed"
-                                FontWeight="Bold"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Text="{Binding DiscountPercent}">
+  Name ="PromotionTextBlock"
+  Foreground="DarkRed"
+  FontWeight="Bold"
+  HorizontalAlignment="Center"
+  VerticalAlignment="Center"
+  Text="{Binding promotion.discountPercent, Converter={StaticResource percentConverter}}">
                                                     </TextBlock>
                                                 </Border>
+
+
+
+
                                             </StackPanel>
 
-                                        </StackPanel>
+
+                                            <Image Width="105" Grid.Column="1"
+
+Cursor="Hand"                      
+Margin="0, 0, 0, 0"
+HorizontalAlignment="Center" VerticalAlignment="Center"
+RenderOptions.BitmapScalingMode="HighQuality"
+Source="{Binding imagePath, Converter={StaticResource absoluteConverter}}"
+>
+                                                <Image.Effect>
+                                                    <DropShadowEffect BlurRadius="35"
+   ShadowDepth="5"
+   Opacity="0.4"
+   Direction="-90"
+   Color="#8B4000"/>
+                                                </Image.Effect>
+                                            </Image>
+
+
+                                        </Grid>
+
+
                                     </Button>
 
-                                    <Image Width="75"
-                       Height="125"
-                       Cursor="Hand"
-                       VerticalAlignment="Top"
-                       Margin="0, 0, 10, 0"
-                       HorizontalAlignment="Right"
-                       RenderOptions.BitmapScalingMode="HighQuality"
-                       Source="{Binding ProImage, Converter={StaticResource absoluteConverter}}"
-                       >
-                                        <Image.Effect>
-                                            <DropShadowEffect BlurRadius="35"
-                          ShadowDepth="5"
-                          Opacity="0.4"
-                          Direction="-90"
-                          Color="#8B4000"/>
-                                        </Image.Effect>
-                                    </Image>
+
                                     <!--Background="#FF7F50"-->
                                 </Grid>
-
                             </DataTemplate>
                         </ListView.ItemTemplate>
                         <ListView.ItemsPanel>
@@ -198,7 +219,7 @@
           Grid.Column="1" Background="White" 
          HorizontalAlignment="Left"
          Height="35"
-         Width="500"
+         Width="430"
          Margin="20, 0,0,0">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -207,15 +228,15 @@
                     </Grid.ColumnDefinitions>
                     <Icon:PackIconMaterial Width="20" Height="20" Kind="Magnify" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <Grid Grid.Column="1"
-                Width="420"
+                Width="360"
                Margin="0"
                HorizontalAlignment="Left">
                         <TextBox 
                  BorderThickness="0"
                  VerticalContentAlignment="Center"
                  FontSize="13"
-                 Width="420"
-                 x:Name="SearchTermTextBox"
+                 Width="360"
+                 x:Name="SearchTermTextBox" TextChanged="SearchTermTextBox_TextChanged"
                 >
                         </TextBox>
                         <TextBlock IsHitTestVisible="False" Text="Search . . ." 
@@ -241,9 +262,38 @@
             <!--Hiển thị Filter (Sort by giá :))-->
 
             <StackPanel Orientation="Horizontal"
-            Grid.Column="1"
+            Grid.Column="2" Grid.ColumnSpan="2"
             HorizontalAlignment="Right"
-            Margin="0,0, 30, 0">
+            Margin="0,0, 10, 0">
+
+
+                <Border
+    Height="35"
+    Width="200"
+    Margin="10,0,0,0"
+    BorderThickness="0.5" BorderBrush="Orange" CornerRadius="18"
+     Background="WhiteSmoke" 
+>
+                    <ComboBox 
+    Name="SortCombobox"
+    BorderThickness="0" BorderBrush="Transparent" Width="160"
+    VerticalContentAlignment="Center"
+                    SelectionChanged="SortCombobox_SelectionChanged"
+    >
+                        <ComboBox.ItemContainerStyle>
+                            <Style TargetType="ComboBoxItem">
+
+                            </Style>
+                        </ComboBox.ItemContainerStyle>
+                        <ComboBoxItem IsHitTestVisible="False" IsEnabled="False" IsSelected="True" >Sort</ComboBoxItem>
+                        <ComboBoxItem>Sắp xếp theo tên (A-Z)</ComboBoxItem>
+                        <ComboBoxItem>Sắp xếp theo tên (Z-A)</ComboBoxItem>
+                        <ComboBoxItem>Săp xếp theo giá giảm dần</ComboBoxItem>
+                        <ComboBoxItem>Sắp xếp theo giá tăng dần</ComboBoxItem>
+                        <ComboBoxItem >Không sắp xếp</ComboBoxItem>
+                    </ComboBox>
+                </Border>
+
                 <Border
         Height="35"
         Width="140"
@@ -254,14 +304,14 @@
                     <ComboBox 
         Name="PriceCombobox"
         BorderThickness="0" BorderBrush="Transparent" Width="110"
-        VerticalContentAlignment="Center"
+        VerticalContentAlignment="Center" SelectionChanged="PriceCombobox_SelectionChanged"
         >
                         <ComboBox.ItemContainerStyle>
                             <Style TargetType="ComboBoxItem">
 
                             </Style>
                         </ComboBox.ItemContainerStyle>
-                        <ComboBoxItem IsHitTestVisible="False" IsEnabled="False" IsSelected="True" >Sort: Price</ComboBoxItem>
+                        <ComboBoxItem IsHitTestVisible="False" IsEnabled="False" IsSelected="True" >Filter: Price</ComboBoxItem>
                         <ComboBoxItem>Less than 5 million</ComboBoxItem>
                         <ComboBoxItem>From 5 to 10 million</ComboBoxItem>
                         <ComboBoxItem>From 10 to 15 million</ComboBoxItem>
@@ -270,27 +320,39 @@
                     </ComboBox>
                 </Border>
                 <Button
-        Name="AddProduct"
+        Name="Import"
         Grid.Row="2"
-        Margin="10,0,0,0"
+        Margin="10,0,0,0" Click="Import_Click"
         Width="35"
         Height="35"
         Style="{StaticResource MyButtonStyle}"
         BorderThickness="0.5"
         BorderBrush="Orange"
         HorizontalAlignment="Right">
+                    <Icon:PackIconMaterial Width="16" Height="16" Kind="FileExcelOutline"/>
+                </Button>
+                <Button
+Name="AddProduct"
+Grid.Row="2"
+Margin="10,0,0,0" Click="AddProduct_Click"
+Width="35"
+Height="35"
+Style="{StaticResource MyButtonStyle}"
+BorderThickness="0.5"
+BorderBrush="Orange"
+HorizontalAlignment="Right">
                     <Icon:PackIconMaterial Width="16" Height="16" Kind="Plus"/>
                 </Button>
             </StackPanel>
 
 
             <!-- Hiển thị phân trang -->
-            <Border BorderThickness="0.5" BorderBrush="Orange" CornerRadius="15"
+            <Border BorderThickness="0.5" BorderBrush="Orange" CornerRadius="15" 
 Background="White" 
 HorizontalAlignment="Right"
             Margin="0 0 20 0"
 Height="30"
-Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
+Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
 Width="180">
 
                 <Grid Width="150">
@@ -305,7 +367,7 @@ Width="180">
                     <Button
     Name="FirstButton" Style="{StaticResource MyTransButton}"
     Background="Transparent"
-    BorderThickness="0"
+    BorderThickness="0" Click="FirstButton_Click"
     
                 >
                         <Image Source="/Assets/Images/Design/first_icon.png" Width="15" Height="15"/>
@@ -313,7 +375,7 @@ Width="180">
                     <Button
     Name="PrevButton" Style="{StaticResource MyTransButton}"
     Grid.Column="1"
-    Background="Transparent"
+    Background="Transparent" Click="PrevButton_Click"
     BorderThickness="0"
    >
                         <Image Source="/Assets/Images/Design/prev_icon.png" Width="15" Height="15"/>
@@ -334,7 +396,7 @@ Width="180">
     Name="NextButton" Style="{StaticResource MyTransButton}"
     Grid.Column="3"
     Background="Transparent"
-    BorderThickness="0"
+    BorderThickness="0" Click="NextButton_Click"
    >
                         <Image Source="/Assets/Images/Design/next_icon.png" Width="15" Height="15"/>
                     </Button>
@@ -342,7 +404,7 @@ Width="180">
                     <Button 
     Name="LastButton" Style="{StaticResource MyTransButton}"
     Grid.Column="4"
-    Background="Transparent"
+    Background="Transparent" Click="LastButton_Click"
     BorderThickness="0"
     >
                         <Image Source="/Assets/Images/Design/last_icon.png" Width="15" Height="15"/>

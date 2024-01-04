@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ConfigDataBase.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\AddCategory.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -14,6 +17,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\AddProduct.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AdvancedStatistic.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Configuration.xaml.cs">
@@ -34,7 +40,19 @@
     <Compile Update="Views\ManageProducts.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ManagePromotion.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\OrderDetail.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\ProductDetail.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ProductStatistic.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SignUp.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Statistic.xaml.cs">
@@ -46,8 +64,14 @@
     <Compile Update="Views\UpdateOrder.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\UpdateProduct.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ConfigDataBase.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -64,6 +88,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\AddProduct.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AdvancedStatistic.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Configuration.xaml">
@@ -84,7 +111,19 @@
     <Page Update="Views\ManageProducts.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\ManagePromotion.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\OrderDetail.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\ProductDetail.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ProductStatistic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SignUp.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Statistic.xaml">
@@ -94,6 +133,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UpdateOrder.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpdateProduct.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

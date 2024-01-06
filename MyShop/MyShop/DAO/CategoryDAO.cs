@@ -100,7 +100,7 @@ namespace MyShop.DAO
 
         public void updateCategory(Category category)
         {
-            var query = "update category set CatName = @catName, CatDescription = @description" +
+            var query = "update category set CatName = @catName, CatDescription = @description " +
                 "where CatID = @catID";
             var command = new SqlCommand(query, Connection);
 

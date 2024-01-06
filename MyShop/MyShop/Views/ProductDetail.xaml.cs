@@ -120,6 +120,15 @@ namespace MyShop.Views
                     selectedPhone.screenSize = info.screenSize;
                     selectedPhone.quantity = info.quantity;
                     selectedPhone.category = info.category;
+                    selectedPhone.promotion = info.promotion;
+
+                    if (selectedPhone.promotion != null)
+                    {
+                        double percent = 1 - selectedPhone.promotion.discountPercent * 1.0 / 100;
+                        selectedPhone.promotionPrice = (decimal?)((double)selectedPhone.price * percent);
+                    }
+                    
+
                     //updateDataSource(_currentPage, _currentCurrency, _currentStartPrice, _currentEndPrice, _currentList);
 
                     try

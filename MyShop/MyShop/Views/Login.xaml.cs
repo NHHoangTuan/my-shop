@@ -84,7 +84,7 @@ namespace MyShop.Views
 
         private void Image_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            Application.Current.Shutdown();
+            Close();
         }
 
         
@@ -104,7 +104,7 @@ namespace MyShop.Views
                 {
                     
                     Trace.WriteLine("Success");
-                    Button button = sender as Button;
+                    
                     
                     MainWindow mainPage = new MainWindow();
                     AppConfig.SetValue("username", inputUsername);

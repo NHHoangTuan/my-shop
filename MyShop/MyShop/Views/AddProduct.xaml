@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:MyShop.Views"
         xmlns:local1="clr-namespace:MyShop.Converter"
         mc:Ignorable="d"
-        Title="AddProduct" Height="590" Width="590">
+        Title="AddProduct" Height="610" Width="610">
 
     <Window.Resources>
         <local1:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>

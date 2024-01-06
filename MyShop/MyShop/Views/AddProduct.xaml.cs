@@ -59,6 +59,12 @@ namespace MyShop.Views
             newPhone.imagePath = _phoneBUS.uploadImage(_selectedImage, id, key);
             newPhone.phoneID = id;
             newPhone.promotionPrice = newPhone.price;
+            newPhone.promotion = new Promotion()
+            {
+                promotionID = null,
+                discountPercent = 0,
+                promotionCode = "No Apply"
+            };
             MessageBox.Show("Add phone success", "Notice", MessageBoxButton.OK);
             DialogResult = true;
         }

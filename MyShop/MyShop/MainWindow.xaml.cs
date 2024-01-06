@@ -96,34 +96,42 @@ namespace MyShop
             ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, managecategoriesButton, manageproductsButton, 
                 manageordersButton, statisticButton, configurationButton, promotionButton};
             buttons = new_buttons;
-            if (AppConfig.GetValue("StartUpPage") == "Dashboard")
+            if (AppConfig.GetValue("checkStartUp") == "true")
+            {
+                if (AppConfig.GetValue("StartUpPage") == "Dashboard")
+                {
+                    dashboardButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                }
+                else if (AppConfig.GetValue("StartUpPage") == "ManageProduct")
+                {
+                    manageproductsButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                }
+                else if (AppConfig.GetValue("StartUpPage") == "ManageCategory")
+                {
+                    managecategoriesButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                }
+                else if (AppConfig.GetValue("StartUpPage") == "ManageOrder")
+                {
+                    manageordersButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                }
+                else if (AppConfig.GetValue("StartUpPage") == "Statistic")
+                {
+                    statisticButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                }
+                else if (AppConfig.GetValue("StartUpPage") == "Configuration")
+                {
+                    configurationButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                }
+                else if (AppConfig.GetValue("StartUpPage") == "Promotion")
+                {
+                    promotionButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                }
+            }
+            else
             {
                 dashboardButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
             }
-            else if (AppConfig.GetValue("StartUpPage") == "ManageProduct")
-            {
-                manageproductsButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-            }
-            else if (AppConfig.GetValue("StartUpPage") == "ManageCategory")
-            {
-                managecategoriesButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-            }
-            else if (AppConfig.GetValue("StartUpPage") == "ManageOrder")
-            {
-                manageordersButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-            }
-            else if (AppConfig.GetValue("StartUpPage") == "Statistic")
-            {
-                statisticButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-            }
-            else if (AppConfig.GetValue("StartUpPage") == "Configuration")
-            {
-                configurationButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-            }
-            else if (AppConfig.GetValue("StartUpPage") == "Promotion")
-            {
-                promotionButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-            }
+            
 
         }
 

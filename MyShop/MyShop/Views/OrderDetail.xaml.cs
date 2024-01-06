@@ -46,6 +46,16 @@ namespace MyShop.Views
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             listPurchase = _purchaseBUS.getAllPurchaseByOrderID(selectedOrder.orderID);
+            selectedOrder.priceTotal = 0;
+            selectedOrder.profitTotal = 0;
+            foreach (Purchase purchase in listPurchase)
+            {
+                var profitPerPurchase = (_orderBUS.calProductProfit(purchase.phone.price) - purchase.phone.price) * purchase.quantity;
+
+                selectedOrder.priceTotal += purchase.totalPrice;
+                selectedOrder.profitTotal += profitPerPurchase;
+                _orderBUS.updateOrder(selectedOrder);
+            }
             productsListView.ItemsSource = listPurchase;
         }
 

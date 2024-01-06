@@ -27,7 +27,7 @@ namespace MyShop.Views
 
 
         OrderBUS _orderBUS;
-
+        PurchaseBUS _purchaseBUS;
         OrderViewModel _orderVM;
 
 
@@ -44,6 +44,7 @@ namespace MyShop.Views
             
             _orderVM = new OrderViewModel();
             _orderBUS = new OrderBUS();
+            _purchaseBUS = new PurchaseBUS();
             _currentPage = 1;
             _currentStartDate = null;
             _currentEndDate = null;
@@ -56,6 +57,21 @@ namespace MyShop.Views
             _orderVM.orderList = _orderBUS.getAllOrder();
 
             _orderVM.selectedOrderList = _orderVM.orderList.ToList();
+
+            foreach (var order in _orderVM.selectedOrderList)
+            {
+                var listPurchase = _purchaseBUS.getAllPurchaseByOrderID(order.orderID);
+                order.priceTotal = 0;
+                order.profitTotal = 0;
+                foreach (Purchase purchase in listPurchase)
+                {
+                    var profitPerPurchase = (_orderBUS.calProductProfit(purchase.phone.price) - purchase.phone.price) * purchase.quantity;
+
+                    order.priceTotal += purchase.totalPrice;
+                    order.profitTotal += profitPerPurchase;
+                }
+                _orderBUS.updateOrder(order);
+            }
             
 
             updateDataList(_currentPage, _currentStartDate, _currentEndDate, _orderVM.selectedOrderList);
@@ -81,16 +97,16 @@ namespace MyShop.Views
 
 
             _currentPage = page;
-            /*if (listOrder.Count() > 0)
-            {
-                _currentPage = 1;
-            }*/
-
-
+         
 
             _totalItems = listOrder.ToList().Count;
             _totalPages = listOrder.ToList().Count / _rowsPerPage +
                 (listOrder.ToList().Count % _rowsPerPage == 0 ? 0 : 1);
+
+            if (_currentPage == 0 && _totalPages > 0)
+            {
+                _currentPage = 1;
+            }
 
 
             if (_currentPage >= _totalPages)

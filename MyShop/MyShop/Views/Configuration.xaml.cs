@@ -82,6 +82,12 @@ namespace MyShop.Views
                 nProductComboBox.SelectedIndex = 8;
             else if (nPhonePerPage == "12")
                 nProductComboBox.SelectedIndex = 9;
+
+            if (AppConfig.GetValue("checkStartUp") == "true")
+            {
+                lastWindowCheckBox.IsChecked = true;
+            }
+            else { lastWindowCheckBox.IsChecked = false;}
         }
 
         private void lastWindowCheckBox_Click(object sender, RoutedEventArgs e)
@@ -89,10 +95,12 @@ namespace MyShop.Views
             if (lastWindowCheckBox.IsChecked == true)
             {
                 isChecked = true;
+                AppConfig.SetValue("checkStartUp", "true");
             }
             else
             {
                 isChecked = false;
+                AppConfig.SetValue("checkStartUp", "false");
             }
         }
     }

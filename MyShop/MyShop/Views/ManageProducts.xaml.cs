@@ -116,6 +116,11 @@ namespace MyShop.Views
             _totalPages = listPhone.ToList().Count / _rowsPerPage +
                 (listPhone.ToList().Count % _rowsPerPage == 0 ? 0 : 1);
 
+            if (_currentPage == 0 && _totalPages > 0)
+            {
+                _currentPage = 1;
+            }
+
 
             if (_currentPage >= _totalPages)
             {
@@ -237,6 +242,7 @@ namespace MyShop.Views
                         try
                 {
                     var newPhone = screen.newPhone;
+                    
                     _phoneVM.phoneList.Add(newPhone);
                     /*_phoneVM.selectedPhoneList.Clear();
 

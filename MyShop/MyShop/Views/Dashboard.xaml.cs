@@ -88,7 +88,7 @@ namespace MyShop.Views
             chart.Series.Add(new LineSeries()
             {
                 Stroke = Brushes.Chocolate,
-                Title = "Revenue Statistic",
+                Title = "Revenue: ",
                 Values = valuesLineChart
             });
 

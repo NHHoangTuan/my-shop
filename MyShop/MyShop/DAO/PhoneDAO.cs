@@ -143,6 +143,10 @@ namespace MyShop.DAO
             command.Parameters.AddWithValue("@manufacturer", phone.manufacturer);
             command.Parameters.AddWithValue("@price", phone.price);
             command.Parameters.AddWithValue("@ID", phone.phoneID);
+            if (phone.promotion.promotionID == null)
+            {
+                phone.promotionPrice = phone.price;
+            }
             command.Parameters.AddWithValue("@promoID", phone.promotion.promotionID == null ? DBNull.Value : phone.promotion.promotionID);
             command.Parameters.AddWithValue("@promoPrice", phone.promotionPrice == null ? phone.price : phone.promotionPrice);
 

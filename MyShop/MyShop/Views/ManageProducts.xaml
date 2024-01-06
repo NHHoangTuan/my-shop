@@ -286,11 +286,11 @@ Source="{Binding imagePath, Converter={StaticResource absoluteConverter}}"
                             </Style>
                         </ComboBox.ItemContainerStyle>
                         <ComboBoxItem IsHitTestVisible="False" IsEnabled="False" IsSelected="True" >Sort</ComboBoxItem>
-                        <ComboBoxItem>Sắp xếp theo tên (A-Z)</ComboBoxItem>
-                        <ComboBoxItem>Sắp xếp theo tên (Z-A)</ComboBoxItem>
-                        <ComboBoxItem>Săp xếp theo giá giảm dần</ComboBoxItem>
-                        <ComboBoxItem>Sắp xếp theo giá tăng dần</ComboBoxItem>
-                        <ComboBoxItem >Không sắp xếp</ComboBoxItem>
+                        <ComboBoxItem>Sort by name (A-Z)</ComboBoxItem>
+                        <ComboBoxItem>Sort by name (Z-A)</ComboBoxItem>
+                        <ComboBoxItem>Sort by price descending</ComboBoxItem>
+                        <ComboBoxItem>Sort by price ascending</ComboBoxItem>
+                        <ComboBoxItem >No Sort</ComboBoxItem>
                     </ComboBox>
                 </Border>
 

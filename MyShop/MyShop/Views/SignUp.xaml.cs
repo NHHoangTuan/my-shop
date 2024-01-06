@@ -79,11 +79,8 @@ namespace MyShop.Views
                 if (signupSucess)
                 {
                     Trace.WriteLine("Sucess");
-                    Button button = sender as Button;
-                    Window parentWindow = Window.GetWindow(button);
-                    var loginWindow = new Login();
-                    loginWindow.Show();
-                    parentWindow.Close();
+                    
+                    this.Close();
                 }
                 else
                 {
